@@ -33,7 +33,7 @@ public class ClientService {
     public ClientResponse updateClient(Long id, ClientRequest clientRequest) {
         log.info("Updating client {}", id);
         var client = clientRepository.findById(id).orElseThrow(() -> new RuntimeException("Client with id %s not found".formatted(id)));
-        client.setIdentificationType(IdentificationType.valueOf(clientRequest.getIdentificationType().toUpperCase()));
+        client.setIdentificationType(clientRequest.getIdentificationType());
         client.setIdentificationNumber(clientRequest.getIdentificationNumber());
         client.setNames(clientRequest.getNames());
         client.setSurnames(clientRequest.getSurnames());

@@ -1,5 +1,7 @@
 package org.anaya.financialapp.controller;
 
+import org.anaya.financialapp.domain.enums.AccountStatus;
+import org.anaya.financialapp.domain.enums.AccountType;
 import org.anaya.financialapp.dto.AccountRequest;
 import org.anaya.financialapp.dto.AccountUpdateRequest;
 import org.anaya.financialapp.service.AccountService;
@@ -59,13 +61,13 @@ class AccountControllerTest {
     private AccountUpdateRequest getAccountUpdateRequest() {
         return AccountUpdateRequest.builder()
                 .gmfExempt(true)
-                .status("ACTIVE")
+                .status(AccountStatus.ACTIVE)
                 .build();
     }
 
     private AccountRequest getAccountRequest() {
         return AccountRequest.builder()
-                .accountType("SAVINGS")
+                .accountType(AccountType.SAVINGS)
                 .clientId(1L)
                 .gmfExempt(true)
                 .balance(1000.0)

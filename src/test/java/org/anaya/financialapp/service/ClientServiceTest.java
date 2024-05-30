@@ -104,7 +104,7 @@ class ClientServiceTest {
 
     private ClientRequest getClientRequest() {
         return ClientRequest.builder()
-                .identificationType("CC")
+                .identificationType(IdentificationType.CC)
                 .identificationNumber("1234567890")
                 .names("John")
                 .surnames("Doe")
@@ -114,7 +114,7 @@ class ClientServiceTest {
     }
     private ClientRequest getUpdateClientRequest() {
         return ClientRequest.builder()
-                .identificationType("CC")
+                .identificationType(IdentificationType.CC)
                 .identificationNumber("987654321")
                 .names("John F.")
                 .surnames("Doe")

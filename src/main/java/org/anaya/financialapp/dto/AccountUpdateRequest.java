@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.anaya.financialapp.domain.enums.AccountStatus;
 
 @Data
 @Builder
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AccountUpdateRequest {
 
-    private String status;
+    private AccountStatus status;
 
     @JsonProperty("gmf_exempt")
     private Boolean gmfExempt;

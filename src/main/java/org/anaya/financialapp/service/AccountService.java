@@ -72,7 +72,7 @@ public class AccountService {
 
     protected void updateAccountStatus(AccountUpdateRequest accountUpdateRequest, Account account) {
         if(accountUpdateRequest.getStatus() != null) {
-            var statusToUpdate = AccountStatus.valueOf(accountUpdateRequest.getStatus().toUpperCase());
+            var statusToUpdate = accountUpdateRequest.getStatus();
             if (statusToUpdate == AccountStatus.CANCELED && account.getBalance() > 0) {
                 throw new IllegalArgumentException("Account with balance different to zero cannot be canceled");
             }

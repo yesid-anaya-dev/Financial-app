@@ -17,7 +17,7 @@ To run the application, you need to have Java 17 installed on your machine.
 
 The application is a Spring Boot application, so you can run it using the following command:
 
-```bash mvn spring-boot:run```
+``` mvn spring-boot:run```
 
 It will start the application on port 7002.
 

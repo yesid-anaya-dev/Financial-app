@@ -62,13 +62,13 @@ class AccountServiceTest {
     void givenAnAccountRequest_WhenCreateAccount_ThenReturnedAccountResponse() {
         // Given
         var accountRequest = AccountRequest.builder()
-                .accountType(AccountType.SAVINGS.name())
+                .accountType(AccountType.SAVINGS)
                 .clientId(1L)
                 .balance(50_000.0)
                 .build();
 
         when(clientRepository.findById(1L)).thenReturn(Optional.of(Client.builder().id(1L).build()));
-        when(accountRepository.save(any(Account.class))).thenAnswer(i -> i.getArguments()[0]);
+        when(accountRepository.save(any(Account.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         // When
         var accountResponse = accountService.createAccount(accountRequest);
@@ -109,11 +109,11 @@ class AccountServiceTest {
 
         var accountUpdateRequest = AccountUpdateRequest.builder()
                 .gmfExempt(true)
-                .status("inactive")
+                .status(AccountStatus.INACTIVE)
                 .build();
 
         when(accountRepository.findById(1L)).thenReturn(Optional.of(account));
-        when(accountRepository.save(any(Account.class))).thenAnswer(i -> i.getArguments()[0]);
+        when(accountRepository.save(any(Account.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         // When
         var accountResponse = accountService.updateAccount(1L, accountUpdateRequest);
@@ -134,7 +134,7 @@ class AccountServiceTest {
         var account = getAccount();
 
         var accountUpdateRequest = AccountUpdateRequest.builder()
-                .status("canceled")
+                .status(AccountStatus.CANCELED)
                 .build();
 
         when(accountRepository.findById(1L)).thenReturn(Optional.of(account));

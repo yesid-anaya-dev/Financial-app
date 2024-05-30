@@ -1,5 +1,6 @@
 package org.anaya.financialapp.controller;
 
+import org.anaya.financialapp.domain.enums.IdentificationType;
 import org.anaya.financialapp.dto.ClientRequest;
 import org.anaya.financialapp.service.ClientService;
 import org.junit.jupiter.api.Test;
@@ -70,7 +71,7 @@ class ClientControllerTest {
 
     private ClientRequest getClientRequest() {
         return ClientRequest.builder()
-                .identificationType("CC")
+                .identificationType(IdentificationType.CC)
                 .identificationNumber("1234567890")
                 .names("John")
                 .surnames("Doe")

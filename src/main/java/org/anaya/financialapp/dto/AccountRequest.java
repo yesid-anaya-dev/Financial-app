@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.anaya.financialapp.domain.enums.AccountType;
 
 @Data
 @Builder
@@ -16,9 +17,8 @@ import lombok.NoArgsConstructor;
 public class AccountRequest {
 
     @NotNull
-    @NotEmpty(message = "Account type is required")
     @JsonProperty("account_type")
-    private String accountType;
+    private AccountType accountType;
 
     @NotNull(message = "GMF exempt is required")
     @JsonProperty("gmf_exempt")
