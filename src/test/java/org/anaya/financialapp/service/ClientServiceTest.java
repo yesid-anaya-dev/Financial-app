@@ -12,6 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -49,7 +50,7 @@ class ClientServiceTest {
     void givenAClientId_WhenGetClient_ThenReturnedClientResponse() {
         // Given
         var clientId = 1L;
-        when(clientRepository.findById(clientId)).thenReturn(java.util.Optional.of(ClientMapper.INSTANCE.toClient(getClientRequest())));
+        when(clientRepository.findById(clientId)).thenReturn(Optional.of(ClientMapper.INSTANCE.toClient(getClientRequest())));
 
         // When
         var clientResponse = clientService.getClient(clientId);
@@ -69,7 +70,7 @@ class ClientServiceTest {
         // Given
         var clientId = 1L;
         var clientRequest = getUpdateClientRequest();
-        when(clientRepository.findById(clientId)).thenReturn(java.util.Optional.of(ClientMapper.INSTANCE.toClient(getClientRequest())));
+        when(clientRepository.findById(clientId)).thenReturn(Optional.of(ClientMapper.INSTANCE.toClient(getClientRequest())));
         when(clientRepository.save(Mockito.any())).thenReturn(ClientMapper.INSTANCE.toClient(clientRequest));
 
         // When
@@ -91,8 +92,7 @@ class ClientServiceTest {
         var clientId = 1L;
         var client = ClientMapper.INSTANCE.toClient(getClientRequest());
         client.setAccounts(Collections.emptyList());
-        when(clientRepository.findById(clientId)).
-                thenReturn(java.util.Optional.of(client));
+        when(clientRepository.findById(clientId)).thenReturn(Optional.of(client));
 
         // When
         clientService.deleteClient(clientId);

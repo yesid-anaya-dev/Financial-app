@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.anaya.financialapp.domain.enums.AccountStatus;
 import org.anaya.financialapp.domain.enums.AccountType;
 
 import java.time.LocalDateTime;
@@ -28,7 +29,8 @@ public class Account {
     private String accountNumber;
 
     @Column(name = "status")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private AccountStatus status;
 
     @Column(name = "balance")
     private Double balance;

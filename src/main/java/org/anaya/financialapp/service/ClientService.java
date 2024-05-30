@@ -18,7 +18,7 @@ public class ClientService {
     public ClientResponse createClient(ClientRequest clientRequest) {
         log.info("Creating client");
         var client = ClientMapper.INSTANCE.toClient(clientRequest);
-        //TODO validate the client age, email format, name and surname length
+        //TODO validate the client age
 
         client = clientRepository.save(client);
         return ClientMapper.INSTANCE.toClientResponse(client);
@@ -26,13 +26,13 @@ public class ClientService {
 
     public ClientResponse getClient(Long id) {
         log.info("Getting client {}", id);
-        var client = clientRepository.findById(id).orElse(null);
+        var client = clientRepository.findById(id).orElseThrow(() -> new RuntimeException("Client with id %s not found".formatted(id)));
         return ClientMapper.INSTANCE.toClientResponse(client);
     }
 
     public ClientResponse updateClient(Long id, ClientRequest clientRequest) {
         log.info("Updating client {}", id);
-        var client = clientRepository.findById(id).orElseThrow(() -> new RuntimeException("Client not found"));
+        var client = clientRepository.findById(id).orElseThrow(() -> new RuntimeException("Client with id %s not found".formatted(id)));
         client.setIdentificationType(IdentificationType.valueOf(clientRequest.getIdentificationType().toUpperCase()));
         client.setIdentificationNumber(clientRequest.getIdentificationNumber());
         client.setNames(clientRequest.getNames());
@@ -45,7 +45,7 @@ public class ClientService {
 
     public void deleteClient(Long id) {
         log.info("Deleting client {}", id);
-        var client = clientRepository.findById(id).orElseThrow(() -> new RuntimeException("Client not found"));
+        var client = clientRepository.findById(id).orElseThrow(() -> new RuntimeException("Client with id %s not found".formatted(id)));
         if (!client.getAccounts().isEmpty()) {
             throw new RuntimeException("Client has accounts");
         }
