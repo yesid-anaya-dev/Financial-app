@@ -55,6 +55,9 @@ A coverage report is generated in the folder **target/site/jacoco/index.html**
 - Add more validations
 - Improve the security layer (use JWT, for example)
 - Improve the error handling, returning more meaningful messages
+- Use of docker-compose to run the application and the database together
+- Add some quality checks (SonarQube, Checkstyle, PMD, etc)
+- Add a CI/CD pipeline
 
 
 
