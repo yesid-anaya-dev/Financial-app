@@ -1,0 +1,281 @@
+{
+  "info": {
+    "name": "Local-Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "bruno",
+      "event": []
+    },
+    {
+      "name": "Create Client",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "my-secure-api-key",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "api-secret",
+            "value": "my-secure-api-secret",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:7002/api/v1/clients",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identification_type\": \"CC\",\n  \"identification_number\": \"123456789\",\n  \"names\": \"Oscar Yesid\",\n  \"surnames\": \"Anaya Oviedo\",\n  \"email\": \"yesidanaya@gmail.com\",\n  \"birthdate\": \"02/09/1982\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get Client",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "my-secure-api-key",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "api-secret",
+            "value": "my-secure-api-secret",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:7002/api/v1/clients/452",
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete Client",
+      "event": [],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "http://localhost:7002/api/v1/clients/302?api-key=my-secure-api-key&api-secret=my-secure-api-secret",
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Update Client",
+      "event": [],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "my-secure-api-key",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "api-secret",
+            "value": "my-secure-api-secret",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:7002/api/v1/clients/302",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identification_type\": \"CC\",\n  \"identification_number\": \"987654321\",\n  \"names\": \"Yesid\",\n  \"surnames\": \"Oviedo\",\n  \"email\": \"yesidanaya@gmail.com\",\n  \"birthdate\": \"02/09/1984\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Create Account",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "my-secure-api-key",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "api-secret",
+            "value": "my-secure-api-secret",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:7002/api/v1/accounts",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"account_type\": \"CURRENT\",\n  \"gmf_exempt\": true,\n  \"balance\": 25000,\n  \"client_id\": 302\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get Account",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "my-secure-api-key",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "api-secret",
+            "value": "my-secure-api-secret",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:7002/api/v1/accounts/52",
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Update Account",
+      "event": [],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "my-secure-api-key",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "api-secret",
+            "value": "my-secure-api-secret",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:7002/api/v1/accounts/52",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"CANCELED\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Create Deposit",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:7002/transactions",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 10000,\n  \"description\": \"Test of a deposit\",\n  \"transaction_type\": \"DEPOSIT\",\n  \"receiver_account_number\": \"5322346171\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Create Withdrawal",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:7002/transactions",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 10000,\n  \"description\": \"Test of a deposit\",\n  \"transaction_type\": \"DEPOSIT\",\n  \"receiver_account_number\": \"5322346171\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Create Transfer",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "my-secure-api-key",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "api-secret",
+            "value": "my-secure-api-secret",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:7002/api/v1/transactions",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 20000,\n  \"description\": \"Test of a transfer\",\n  \"transaction_type\": \"TRANSFER\",\n  \"sender_account_number\": \"3373036766\",\n  \"receiver_account_number\": \"5322346171\"\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": []
+}

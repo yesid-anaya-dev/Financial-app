@@ -1,0 +1,344 @@
+{
+  "name": "Local-Collection",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "Create Client",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:7002/api/v1/clients",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"identification_type\": \"CC\",\n  \"identification_number\": \"123456789\",\n  \"names\": \"Oscar Yesid\",\n  \"surnames\": \"Anaya Oviedo\",\n  \"email\": \"yesidanaya@gmail.com\",\n  \"birthdate\": \"02/09/1982\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get Client",
+      "seq": 3,
+      "request": {
+        "url": "http://localhost:7002/api/v1/clients/452",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Delete Client",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:7002/api/v1/clients/302?api-key=my-secure-api-key&api-secret=my-secure-api-secret",
+        "method": "DELETE",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "http",
+      "name": "Update Client",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:7002/api/v1/clients/302",
+        "method": "PUT",
+        "headers": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"identification_type\": \"CC\",\n  \"identification_number\": \"987654321\",\n  \"names\": \"Yesid\",\n  \"surnames\": \"Oviedo\",\n  \"email\": \"yesidanaya@gmail.com\",\n  \"birthdate\": \"02/09/1984\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Account",
+      "seq": 6,
+      "request": {
+        "url": "http://localhost:7002/api/v1/accounts",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"account_type\": \"CURRENT\",\n  \"gmf_exempt\": true,\n  \"balance\": 25000,\n  \"client_id\": 302\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get Account",
+      "seq": 7,
+      "request": {
+        "url": "http://localhost:7002/api/v1/accounts/52",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Update Account",
+      "seq": 8,
+      "request": {
+        "url": "http://localhost:7002/api/v1/accounts/52",
+        "method": "PUT",
+        "headers": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"status\": \"CANCELED\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Deposit",
+      "seq": 9,
+      "request": {
+        "url": "http://localhost:7002/transactions",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"amount\": 10000,\n  \"description\": \"Test of a deposit\",\n  \"transaction_type\": \"DEPOSIT\",\n  \"receiver_account_number\": \"5322346171\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Withdrawal",
+      "seq": 10,
+      "request": {
+        "url": "http://localhost:7002/transactions",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"amount\": 10000,\n  \"description\": \"Test of a deposit\",\n  \"transaction_type\": \"DEPOSIT\",\n  \"receiver_account_number\": \"5322346171\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Transfer",
+      "seq": 11,
+      "request": {
+        "url": "http://localhost:7002/api/v1/transactions",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "api-key",
+            "value": "my-secure-api-key",
+            "enabled": true
+          },
+          {
+            "name": "api-secret",
+            "value": "my-secure-api-secret",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"amount\": 20000,\n  \"description\": \"Test of a transfer\",\n  \"transaction_type\": \"TRANSFER\",\n  \"sender_account_number\": \"3373036766\",\n  \"receiver_account_number\": \"5322346171\"\n\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "Local-Collection",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}

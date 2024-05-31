@@ -24,4 +24,37 @@ It will start the application on port 7002.
 ## API Documentation
 The API documentation is available at http://localhost:7002/swagger-ui.html
 
+## Security
+The application uses api keys to authenticate the requests. You need to provide the api key and api secret in the headers of the request.
+`api-key: api_key`
+`api-secret: api_secret`
+The api key and api secret are hardcoded in the application. You can find them in _application.properties_ file.
+
+## Monitoring
+The application uses Spring Boot Actuator to provide monitoring endpoints. You can find them at http://localhost:7002/actuator
+
+## Postman/Bruno Collection
+You can find a Postman collection in the folder **docs** in the root of the project. It contains all the requests that you can make to the application.
+
+## Test coverage
+The application has unit tests that cover the main functionalities. You can run the tests using the following command:
+
+```mvn clean test```
+A coverage report is generated in the folder **target/site/jacoco/index.html**
+
+## Some considerations
+
+- The birthdate is a string in the format `dd/MM/yyyy`.
+- For a deposit, we need to provide the account number in the field `receiver_account_number`.
+- For a withdrawal, we need to provide the account number in the field `sender_account_number`.
+- For a transfer, we need to provide the account number in the fields `sender_account_number` and `receiver_account_number`.
+
+## Future improvements
+- Add more tests
+- Add integration tests
+- Add more validations
+- Improve the security layer (use JWT, for example)
+- Improve the error handling, returning more meaningful messages
+
+
 
