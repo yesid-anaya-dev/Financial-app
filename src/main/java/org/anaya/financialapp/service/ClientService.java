@@ -18,6 +18,7 @@ import java.time.LocalDate;
 @Slf4j
 @RequiredArgsConstructor
 public class ClientService {
+    private static final String CLIENT_WITH_ID_S_NOT_FOUND = "Client with id %s not found";
     private final ClientRepository clientRepository;
 
     public ClientResponse createClient(ClientRequest clientRequest) {
@@ -31,13 +32,13 @@ public class ClientService {
 
     public ClientResponse getClient(Long id) {
         log.info("Getting client {}", id);
-        var client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Client with id %s not found".formatted(id)));
+        var client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(CLIENT_WITH_ID_S_NOT_FOUND.formatted(id)));
         return ClientMapper.INSTANCE.toClientResponse(client);
     }
 
     public ClientResponse updateClient(Long id, ClientRequest clientRequest) {
         log.info("Updating client {}", id);
-        var client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Client with id %s not found".formatted(id)));
+        var client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(CLIENT_WITH_ID_S_NOT_FOUND.formatted(id)));
         client.setIdentificationType(clientRequest.getIdentificationType());
         client.setIdentificationNumber(clientRequest.getIdentificationNumber());
         client.setNames(clientRequest.getNames());
@@ -51,7 +52,7 @@ public class ClientService {
 
     public void deleteClient(Long id) {
         log.info("Deleting client {}", id);
-        var client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Client with id %s not found".formatted(id)));
+        var client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(CLIENT_WITH_ID_S_NOT_FOUND.formatted(id)));
         if (!client.getAccounts().isEmpty()) {
             throw new InvalidClientException("Client cannot be deleted because it has accounts");
         }

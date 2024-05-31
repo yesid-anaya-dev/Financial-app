@@ -1,6 +1,7 @@
 package org.anaya.financialapp.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -35,6 +36,7 @@ public class ClientRequest {
     @Size(min = 2, max = 255)
     private String surnames;
 
+    @Email(regexp = ".+[@].+[\\.].+")
     private String email;
 
     @NotNull
